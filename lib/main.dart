@@ -6,13 +6,13 @@ void main() => runApp(const MomentumApp());
 /* =========================== THEME: CALM FOCUS =========================== */
 
 class Palette {
-  static const bg = Color(0xFFFAF8F6);        // soft creamy background
-  static const card = Color(0xFFFFFFFF);      // white cards
-  static const accent = Color.fromARGB(255, 42, 94, 0);    // eucalyptus green
-  static const accent2 = Color(0xFFE8C7A0);   // warm sand beige
-  static const text = Color(0xFF3B3A3A);      // charcoal text
-  static const highlight = Color(0xFFA2D6B3); // light minty highlight
-  static const divider = Color(0xFFEDE9E4);   // subtle divider
+  static const bg = Color(0xFFF5F3F0);        // warm linen background
+  static const card = Color(0xFFFFFFFF);      // clean white cards
+  static const accent = Color(0xFF7C9885);    // muted sage green
+  static const accent2 = Color(0xFFB8A398);   // soft taupe
+  static const text = Color(0xFF3D3D3D);      // warm charcoal
+  static const highlight = Color(0xFFC4D7CB); // pale mint
+  static const divider = Color(0xFFE3DED8);   // warm beige divider
 }
 
 
@@ -195,8 +195,22 @@ class _HomeShellState extends State<HomeShell> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Momentum'),
+  title: Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Icon(Icons.trending_up, size: 24),
+      SizedBox(width: 8),
+      Text(
+        'MOMENTUM',
+        style: TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 1.8,
+        ),
       ),
+    ],
+  ),
+),
       body: pages[index],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
@@ -220,7 +234,7 @@ class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key, required this.state});
 
   static const heroImage =
-  'https://i.ibb.co/0jM76ZKN/desk-setup.jpg'; // calm desk setup vibe
+  'assets/images/hero.png'; // calm desk setup vibe
 
       //'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop'; // clean desk/work vibe
 
@@ -1023,7 +1037,7 @@ class _PomodoroPageState extends State<PomodoroPage> {
           subtitle: onBreak ? 'Breathe, stretch, sip water.' : 'Deep work on one task.',
           imageUrl: onBreak
               ? 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop' // tea/cup vibe
-              : 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop', // coding desk
+              : 'assets/images/focus.jpg', // coding desk
         ),
         const SizedBox(height: 16),
         Center(
@@ -1125,7 +1139,7 @@ class _NotesPageState extends State<NotesPage> {
         _HeroHeader(
           title: 'Notes & Journal',
           subtitle: 'Capture thoughts. Add images. Pin favorites.',
-          imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop', // notebook/pen
+          imageUrl: 'assets/images/notes.jpg', // pencil on notebook aesthetic
         ),
         const SizedBox(height: 12),
         Row(children: [
